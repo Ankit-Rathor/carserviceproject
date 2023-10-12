@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       end
     else
       flash[:alert] = 'invalid password'
-     render :new
+      render :new
     end
   end
 

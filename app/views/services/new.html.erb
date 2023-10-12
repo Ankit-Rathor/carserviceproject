@@ -1,11 +1,12 @@
 <h1>create Services </h1>
 <%= form_with model: @service, local: true do |form| %>
   <%= form.hidden_field :booking_id, value: params[:booking_id]%>
-  <%= form.label :name  %> :
+  <%= form.label :name %> :
   <%= form.text_field 'details[name]', placeholder: 'name' %><br>
   <%= form.label :description  %> :
   <%= form.text_area 'details[description]', placeholder: 'description' %><br>
   <%= form.label :duration %> :
   <%= form.text_field 'details[duration]', placeholder: 'duration' %><br>
   <%= form.submit  %>
+  <%= link_to 'Back', { controller: 'mechanics', action: 'mechanic_booking'} %>
 <% end %> 

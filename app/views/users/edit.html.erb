@@ -1,12 +1,11 @@
 <%= render'/shared/dash_board' %>
 <div class="container" align="center">
-  <%binding.pry%>
   <%= form_for @user, url: {action: :update} do |f| %>
      <h3> Update Data </h3>   
     <div>   
       <label>User Name</label>   
       <%= f.text_field :name %>   
-    </div> <br>  
+    </div><br>
     <div>   
       <label>Email</label>   
       <%= f.text_field :email %>   

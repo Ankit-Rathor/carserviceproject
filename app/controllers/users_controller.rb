@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :redirect_if_authenticated, only: [:create]
+   # before_action :redirect_if_authenticated, only: [:create]
   skip_before_action :authenticate_user,only: [:new,:create]
   before_action :check_authorization
   skip_before_action :check_authorization, only: [:update,:edit]
@@ -30,11 +30,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserConfirmationMailer.user_confirmation_email(@user).deliver_now
+      UserMailerJob.perform_later(@user)
+      # UserConfirmationMailer.user_confirmation_email(@user).deliver_now
       flash[:notice] = 'user added sucesfully!'
       redirect_to new_car_path
     else
-      flash[:notice] = 'Invalid password'
+      flash[:notice] = 'please check invalid password must include at least one uppercase letter, one lowecase letter, one digit, and one special character'
       render :new
     end
   end

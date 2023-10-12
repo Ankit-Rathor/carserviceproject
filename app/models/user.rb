@@ -15,8 +15,5 @@ class User < ApplicationRecord
   
   # Enum define role
   enum :role,{customer:0 , admin:1, mechanic:2}
-
-  #Enum define status
-  enum :status, {confirmed: 'confirmed', pending: 'pending', cancelled: 'cancelled'}, default: :pending
 end
 

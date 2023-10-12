@@ -10,7 +10,6 @@ class MechanicsController < ApplicationController
   def index
     @mech = User.mechanic #show mechanics list
     @booking_mech_id = params[:booking_id]
-    # @booking_mech_id =Booking.where(params[:booking_id])
     if current_user.mechanic?
       redirect_to mechanic_booking_path
     elsif current_user.customer?

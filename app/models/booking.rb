@@ -7,6 +7,8 @@ class Booking < ApplicationRecord
   belongs_to :mechanic, class_name:'User', optional: true
   belongs_to :service, optional: true
   belongs_to :car
+  #scope
+  default_scope {order('created_at DESC')}
 
   #callback
   after_create :send_mail

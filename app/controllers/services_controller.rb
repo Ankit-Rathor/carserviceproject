@@ -32,8 +32,8 @@ class ServicesController < ApplicationController
     redirect_to service_history_path
   end
 
+  #booking id to service find
   def create
-    #booking id to service find
     booking = Booking.find_by(id: params[:service][:booking_id])
     mechanic = booking.mechanic_id # booking in mechanic_id
     service = Service.new(service_params)
@@ -47,7 +47,6 @@ class ServicesController < ApplicationController
 
   def service_history
     @bookings_service = Booking.joins(:service)
-
     if current_user.mechanic?
       redirect_to mechanic_booking_path
     end

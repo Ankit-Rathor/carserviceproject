@@ -1,17 +1,21 @@
 <%= render  'shared/admin_navbar' %>
 <h4>Mechanic List</h4>
-<table>
-  <tr>
-    <th> Name</th>
-    <th>Assine Work</th>
-    <th>mechanic_view</th>
-  </tr>
-  <% @mech.each do |m|%>
-  <tr>
-    <td><%= m.name %></td>
-    <td> <%= link_to "assinework", assinework_path(mechanic_id: m, booking_id:  @booking_mech_id) %></td>
-    <td> <%= link_to "mechanic_view", mechanic_path(m, booking_id: @booking_mech_id) %></td>
+<table class="table table-bordered">
+  <thead class="text-center">
+    <tr class="bg-primary">
+      <th> Name</th>
+      <th>Assine Work</th>
+      <th>mechanic_view</th>
     </tr>
+  </thead>
+  <% @mech.each do |m|%>
+  <tbody class="text-center">
+    <tr>
+      <td><%= m.name %></td>
+      <td> <%= link_to "assinework", assinework_path(mechanic_id: m.id, booking_id: @booking_mech_id) %></td>
+      <td> <%= link_to "mechanic_view", mechanic_path(m, booking_id: @booking_mech_id) %></td>
+    </tr>
+  </tbody>
   <% end %>
 </table>
 

@@ -54,6 +54,10 @@ gem "letter_opener", :group => :development
  # Athentication
  gem 'cancancan'
 
+ #sidekq
+ gem "sidekiq"
+ gem 'redis'
+
  #turbo
  gem 'hotwire-rails'
  gem 'turbo-rails'

@@ -1,0 +1,4 @@
+user_mailer_job:
+  cron: "5 7 * * *"
+  class: "UserMailerJob"
+  queue: default

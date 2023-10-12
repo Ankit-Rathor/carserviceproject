@@ -1,38 +1,42 @@
 <%= render  'shared/admin_navbar' %>
-<h1>Welcome to Admin </h1>
-<h2>Mr.<%= current_user.name %></h2>
-<table>
-  <tr>
-    <th>Owner Name</th>
-    <th>Email</th>
-    <th>Contact</th>
-    <th> Car_number</th>
-    <th>Model</th>
-    <th>Car_Name</th>
-    <th>Issue</th>
-    <th>City</th>
-    <th>Location</th>
-    <th>Satus</th>
-    <th>Action</th> 
-  </tr>
-  <% @bookings.each do |book|%>
+<table class="table table-bordered border-primary table-sm">
+  <thead class="bg-primary text-center">
     <tr>
-      <td><%= book.user.name %></td>
-      <td><%= book.user.email %></td>
-      <td><%= book.user.contact %></td>
-      <td><%= book.car.number %></td>
-      <td><%= book.car.model %></td>
-      <td><%= book.car.name %></td>
-      <td><%= book.issue %></td>
-      <td><%= book.user.address.city %></td>
-      <td><%= book.user.address.location %></td>
-      <td><%= book.status %></td>
-      <td>
-        <%= link_to 'cancel', cancel_path(id: book.id), method: 'get'%><br>
-        <%= link_to 'confirm', confirm_path(id: book.id), method: 'get'%><br>
-        <%= link_to 'Approvrd', mechanics_path(booking_id: book.id)%><br>
-        <td><%= button_to 'Remove', admin_path(id: book.id), method: 'delete', data: { confirm: 'Are you sure?' } %><td> 
-      </td> 
+      <th scope="col">Owner Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Contact</th>
+      <th scope="col"> Car_number</th>
+      <th scope="col">Model</th>
+      <th scope="col">Car_Name</th>
+      <th scope="col">Issue</th>
+      <th scope="col">City</th>
+      <th scope="col">Location</th>
+      <th scope="col">Satus</th>
+      <th scope="col">Cancle</th>
+      <th scope="col">Confirm</th>
+      <th scope="col">Approved</th>
+      <th scope="col">Delete</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @bookings.each do |book|%>
+      <tr class="align-bottom">
+        <td><%= book.user.name %></td>
+        <td><%= book.user.email %></td>
+        <td><%= book.user.contact %></td>
+        <td><%= book.car.number %></td>
+        <td><%= book.car.model %></td>
+        <td><%= book.car.name %></td>
+        <td><%= book.issue %></td>
+        <td><%= book.user.address.city %></td>
+        <td><%= book.user.address.location %></td>
+        <td><%= book.status %></td>
+        <td><%= link_to 'cancel', cancel_path(id: book.id), method: 'get'%></td>
+        <td><%= link_to 'confirm', confirm_path(id: book.id), method: 'get'%></td>
+        <td> <%= link_to 'Approvrd', mechanics_path(booking_id: book.id)%></td>
+        <td><%= button_to 'Remove', admin_path(id: book.id), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+

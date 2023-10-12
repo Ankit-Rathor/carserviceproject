@@ -12,12 +12,12 @@ class CarsController < ApplicationController
   end
 
   def create
-    car = Car.new(car_params)
-    if car.save
+    @car = Car.new(car_params)
+    if @car.save
       flash[:notice] = 'car added!'
       redirect_to new_booking_path
     else   
-      flash[:error] = 'Failed to edit product!'   
+      flash[:error] = 'invalid vehicle number!'
       render :new   
     end   
   end   

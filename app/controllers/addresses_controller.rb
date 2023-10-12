@@ -1,15 +1,6 @@
 class AddressesController < ApplicationController
-
   before_action :address_authorization
 
-  # def address_authorization
-  #   if current_user.admin?
-  #     redirect_to admins_path
-  #     unless current_user.admin?
-  #       redirect_to dash_board_path
-  #     end
-  #   end
-  # end
   def address_authorization
     if current_user.admin?
       redirect_to admins_path
