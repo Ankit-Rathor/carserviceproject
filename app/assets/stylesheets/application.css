@@ -65,3 +65,35 @@ ul{
   color: black;
   padding-top: 20px;
 }
+.btn-btn-p{
+  background-color: blue;
+  top: 3px;
+  left: -3px;
+  box-shadow: -3px 3px 0 $brown;
+}
+.btn-btn-danger{
+  background-color: red;
+}
+.btn-btn-danger:hover{
+  background-color: whitesmoke;
+}
+.btn-logout{
+  background-color: blue;
+
+}
+.btn-logout:hover{
+  background-color: whitesmoke;
+}
+.btn-profile{
+  background-color: red;
+}
+.btn-profile:hover{
+  background-color: whitesmoke;
+}
+.vh-bg-image{
+  background: navajowhite;
+  width: 100%;
+}
+.container{
+  opacity: 0.8;
+}

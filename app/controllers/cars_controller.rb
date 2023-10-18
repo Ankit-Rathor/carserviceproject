@@ -3,10 +3,6 @@ class CarsController < ApplicationController
     @cars = current_user.cars
   end
 
-  def show
-    @car = Car.find_by(id: params[:id])
-  end
-
   def new
     @car = Car.new
   end
@@ -23,7 +19,7 @@ class CarsController < ApplicationController
   end   
 
   def update
-    car = Car.find_by(id: params[:id])
+    car = current_user.cars.find_by(id: params[:id])
     if car.update(car_params)
       flash[:notice] = 'car updated!'   
       redirect_to cars_path   
@@ -34,7 +30,7 @@ class CarsController < ApplicationController
   end   
 
   def edit
-    @car = Car.find_by(id: params[:id])
+    @car = current_user.cars.find_by(id: params[:id])
   end
 
   def destroy

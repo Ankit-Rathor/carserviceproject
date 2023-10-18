@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-   # before_action :redirect_if_authenticated, only: [:create]
+  # before_action :redirect_if_authenticated, only: [:create]
   skip_before_action :authenticate_user,only: [:new,:create]
   before_action :check_authorization
   skip_before_action :check_authorization, only: [:update,:edit]

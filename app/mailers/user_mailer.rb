@@ -1,7 +1,6 @@
 class UserMailer < ApplicationMailer
   def welcome_email(user)
-    binding.pry
     @user = user
-    mail(to: @user.email, subject: "User mail!")
+    mail(to: @user.email, subject: "car@service.com!")
   end
 end

@@ -1,20 +1,15 @@
-
 <%= render  'shared/admin_navbar' %>
 <div
   class="bg-image"
   style="
-
     background-image: url('https://img.freepik.com/free-vector/car-service-center-advertisement-composition-poster-with-wheels-tires-oil-gas-canister_1284-6272.jpg?size=626&ext=jpg&ga=GA1.2.1348271165.1695383270&semt=ais');
-    height: 100vh;
-  "
-></div>
-
-  <% flash.each do |type, msg| %>
-    <div class="alert alert-info">
-      <%= msg %>
-    </div>
-  <% end %>
-
+    height: 100vh;">
+</div>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
 <script>
   setTimeout(function() {
     $('.alert').remove();

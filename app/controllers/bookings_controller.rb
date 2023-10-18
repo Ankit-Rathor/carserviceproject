@@ -11,17 +11,7 @@ class BookingsController < ApplicationController
   end
 
   def index
-    if current_user.customer?
-      @bookings = Booking.where(user_id: current_user.id)
-    elsif current_user.mechanic?
-      @bookings = Booking.where(mechanic_id: current_user.id)
-    elsif current_user.admin?
-      @bookings= Booking.all
-    end
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
+    @bookings = current_user.bookings
   end
 
   def new
@@ -40,7 +30,7 @@ class BookingsController < ApplicationController
   end 
   
   def update
-    booking = Booking.find(params[:id])
+    booking = current_user.bookings.find(params[:id])
     if booking.update(booking_params)
       flash[:notice] = 'booking updated!'   
       redirect_to bookings_path   
@@ -51,18 +41,18 @@ class BookingsController < ApplicationController
   end   
 
   def edit
-    @booking = Booking.find(params[:id])
+    @booking = current_user.bookings.find(params[:id])
   end
 
   def destroy
-    booking = Booking.find(params[:id])
-    if booking.delete
-      flash[:notice] = 'deleted succesfully'   
-      redirect_to bookings_path   
-    else   
-      flash[:error] = 'Failed to delete !'   
-      render :destroy   
-    end   
+    booking = current_user.bookings.find(params[:id])
+    if booking.destroy
+      flash[:notice] = 'deleted succesfully'
+      redirect_to bookings_path
+    else
+      flash[:error] = 'Failed to delete !'
+      render :destroy
+    end
   end
 
   def confirm

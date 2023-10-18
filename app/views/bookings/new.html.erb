@@ -1,24 +1,24 @@
 <%= render'/shared/dash_board' %>
-<div class="container">  
- <h2>Enter Your Booking Details</h2>
-  <%= form_for @booking,url: {action: :create} do |f| %> 
-  <%= f.hidden_field :user_id, value: current_user.id%>
-    <div>  
-      <label>Issue</label>   
-      <%= f.text_area :issue %>   
-    </div><br> 
-    <div>  
-      <label>Date</label>   
-      <%= f.date_field :date %>   
+<div class="container">
+  <h2>Enter Your Booking Details</h2>
+  <%= form_for @booking,url: {action: :create} do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id%>
+    <div>
+      <label>Issue</label>
+      <%= f.text_area :issue %>
     </div><br> 
     <div>
-    <% if current_user.cars.present? %>
-      <%= f.collection_select :car_id, current_user.cars, :id, :name %>
-    <% end %>  
+      <label>Date</label>
+      <%= f.date_field :date %>
     </div><br>
-    <div>   
+    <div>
+      <% if current_user.cars.present? %>
+        <%= f.collection_select :car_id, current_user.cars, :id, :name %>
+      <% end %>
+    </div><br>
+    <div>
       <%= f.submit 'Create Booking' %>
       <%= link_to 'Back', { controller: 'cars', action: 'new'} %>
-    </div>   
-  <% end %>   
-</div>  
+    </div>
+  <% end %>
+</div>

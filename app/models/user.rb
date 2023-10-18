@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates_length_of :password, in: 8..10
 
   #Association
-  has_many :cars,dependent:   :destroy
+  has_many :cars, dependent:   :destroy
   has_many :bookings, dependent: :destroy
   has_one  :address, dependent: :destroy
   accepts_nested_attributes_for :address

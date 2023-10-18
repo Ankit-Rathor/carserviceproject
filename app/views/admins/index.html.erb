@@ -19,22 +19,22 @@
     </tr>
   </thead>
   <tbody>
-    <% @bookings.each do |book|%>
+    <% @bookings.each do |booking|%>
       <tr class="align-bottom">
-        <td><%= book.user.name %></td>
-        <td><%= book.user.email %></td>
-        <td><%= book.user.contact %></td>
-        <td><%= book.car.number %></td>
-        <td><%= book.car.model %></td>
-        <td><%= book.car.name %></td>
-        <td><%= book.issue %></td>
-        <td><%= book.user.address.city %></td>
-        <td><%= book.user.address.location %></td>
-        <td><%= book.status %></td>
-        <td><%= link_to 'cancel', cancel_path(id: book.id), method: 'get'%></td>
-        <td><%= link_to 'confirm', confirm_path(id: book.id), method: 'get'%></td>
-        <td> <%= link_to 'Approvrd', mechanics_path(booking_id: book.id)%></td>
-        <td><%= button_to 'Remove', admin_path(id: book.id), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+        <td><%= booking.user.name %></td>
+        <td><%= booking.user.email %></td>
+        <td><%= booking.user.contact %></td>
+        <td><%= booking.car.number %></td>
+        <td><%= booking.car.model %></td>
+        <td><%= booking.car.name %></td>
+        <td><%= booking.issue %></td>
+        <td><%= booking.user.address.city %></td>
+        <td><%= booking.user.address.location %></td>
+        <td><%= booking.status %></td>
+        <td><%= link_to 'cancel', cancel_path(id: booking.id), method: 'get'%></td>
+        <td><%= link_to 'confirm', confirm_path(id: booking.id), method: 'get'%></td>
+        <td> <%= link_to 'Approvrd', mechanics_path(booking_id: booking.id)%></td>
+        <td><%= button_to 'Remove', admin_path(id: booking.id), method: 'delete', data: { confirm: 'Are you sure?' },:class => "btn-btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

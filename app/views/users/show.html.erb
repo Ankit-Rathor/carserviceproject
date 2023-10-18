@@ -20,7 +20,7 @@
             <div class="d-flex justify-content-center mb-2">
               <td><%= link_to 'Edit_Profile', edit_user_path(current_user), method: 'get'%><td>
             </div>
-          <td><%= button_to 'Delete', user_path(current_user), method: 'delete', data: { confirm: 'Are you sure?'} %></td>
+          <td><%= button_to 'Delete', user_path(current_user), method: 'delete', data: { confirm: 'Are you sure?'} ,:class => "btn-btn-danger"%></td>
           </div>
         </div>
       </div>
@@ -54,7 +54,6 @@
               </div>
             </div>
             <hr>
-            <hr>
             <div class="row">
               <div class="col-sm-3">
                 <p class="mb-0">Address</p>
@@ -63,8 +62,6 @@
                 <p class="text-muted mb-0"><%= @current_user.address.city%></p>
               </div>
             </div>
-          </div>
-        </div>
           </div>
         </div>
       </div>

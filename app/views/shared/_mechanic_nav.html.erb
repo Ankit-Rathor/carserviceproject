@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <div class="container-fluid">
-    <h1>Welcome to mechanic</h1>
+     <li>
+   <% if user_signed_in? %>
+      <%= button_to "Log Out", session_path(current_user.id), method: :delete %>
+    <% end %>
+  </li>
     <ul>
       <li class="nav-item m-4">
         <%= link_to "profile",  user_path(current_user.id)%>
@@ -9,8 +13,10 @@
         <%= link_to "cars",  cars_path(current_user.id)%>
       </li>
     </ul>
-    <% if user_signed_in? %>
-      <%= button_to "Log Out", session_path(current_user.id), method: :delete %>
-    <% end %>
   </div>
+    <li>
+      <a class="navbar-brand" href="#">
+        <img src="https://www.gifservice.fr/img/gif-vignette-small/8e677cb7304138c36f3bf0a04ef33c42/148271-transport-cars-suzuki-logo.gif" alt="Logo" style="width:100px; height: 80px; margin-left: 150px;">
+      </a>
+    </li>
 </nav>

@@ -1,5 +1,5 @@
 class MechanicsController < ApplicationController
-  before_action :check_authorization,only: [:mechanics_path]
+  before_action :check_authorization, only: [:mechanics_path]
 
   def check_authorization
     unless current_user.mechanic?
@@ -8,7 +8,7 @@ class MechanicsController < ApplicationController
   end
 
   def index
-    @mech = User.mechanic #show mechanics list
+    @mechanics = User.mechanic #show mechanics list
     @booking_mech_id = params[:booking_id]
     if current_user.mechanic?
       redirect_to mechanic_booking_path
@@ -19,7 +19,7 @@ class MechanicsController < ApplicationController
 
   def show
     mech = User.find_by(id: params[:id])
-    @mech_detail = Booking.where(mechanic_id: mech.id)
+    @mech_details = Booking.where(mechanic_id: mech.id)
   end
 
   #update booking mechanic
@@ -33,7 +33,7 @@ class MechanicsController < ApplicationController
 
   def mechanic_booking
     mechanic_user = User.find_by(id: current_user.id)
-    @user_booking = Booking.where(mechanic_id: mechanic_user.id)
+    @user_bookings = Booking.where(mechanic_id: mechanic_user.id)
     if current_user.admin?
       redirect_to admins_path
     elsif current_user.customer?

@@ -2,7 +2,7 @@
   <div class="container-fluid">
   <h1>Login Page</h1>
     <% if user_signed_in? %>
-    <%= button_to "Log Out", session_path(current_user.id), method: :delete %>
-  <% end %>
+      <%= button_to "Log Out", session_path(current_user.id), method: :delete %>
+    <% end %>
   </div>
 </nav>

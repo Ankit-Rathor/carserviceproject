@@ -1,12 +1,14 @@
 <table class="table table-bordered border-primary">
-  <tr>
-    <th scope="col">Mechanic_name</th>
-    <th scope="col">Email</th>
-    <th scope="col">Contact</th>
-    <th scope="col">work</th>
-  </tr>
+  <thead>
+    <tr>
+      <th scope="col">Mechanic_name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Contact</th>
+      <th scope="col">work</th>
+    </tr>
+  </thead>
   <tbody>
-    <% @mech_detail.each do |mech_detail|%>
+    <% @mech_details.each do |mech_detail|%>
       <tr>
         <td><%= mech_detail.mechanic.name%></td>
         <td><%= mech_detail.mechanic.email %></td>

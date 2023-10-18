@@ -24,8 +24,8 @@
               <td><%= car.number %></td>
               <td><%= car.model %></td>
               <td><%= car.company %></td>
-              <td><%= button_to 'Edit', edit_car_path(car), method: 'get'%></td>
-              <td><%= button_to 'Remove', car_path(car), method: 'delete', data: { confirm: 'Are you sure?' } %>
+              <td><%= button_to 'Edit', edit_car_path(car), method: 'get',:class => "btn btn-success"%></td>
+              <td><%= button_to 'Remove', car_path(car), method: 'delete', data: { confirm: 'Are you sure?' },:class => "btn btn-danger" %>
               </td>
             </tr>   
           <% end %>   

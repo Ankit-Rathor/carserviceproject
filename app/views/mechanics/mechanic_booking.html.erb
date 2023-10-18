@@ -16,7 +16,7 @@
     <th>Create Service</th>
     <th>Customer Feedback</th>
   </tr>
-  <% @user_booking.each do |user_booking|%>
+  <% @user_bookings.each do |user_booking|%>
     <tr> 
       <td><%= user_booking.user.name %></td>
       <td><%= user_booking.user.email %></td>
@@ -34,4 +34,3 @@
     </tr>
   <% end %>
 </table>
-
